@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nta>
+	<declaration>clock c;
+		chan h1,h2;
+		chan a;</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-153" y="-93">
+		</location>
+		<location id="id1" x="-17" y="-93">
+		</location>
+		<location id="id2" x="-153" y="34">
+		</location>
+		<location id="id3" x="-17" y="34">
+		</location>
+		<location id="id4" x="-153" y="144">
+		</location>
+		<location id="id5" x="-17" y="144">
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-17" y="72">a!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-153" y="72">a!</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-153" y="-46">h1!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-17" y="-46">h1!</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-110" y="-110">h2?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

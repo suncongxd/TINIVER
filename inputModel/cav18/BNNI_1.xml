@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nta>
+	<declaration>clock c;
+
+chan query1,requery1,resubmit,submit;
+chan order,suborder;
+		</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-178" y="-102">
+			<name x="-187" y="-110">s1</name>
+		</location>
+		<location id="id1" x="-8" y="-102">
+			<name x="-17" y="-110">s2</name>
+		</location>
+		<location id="id2" x="161" y="-102">
+			<name x="153" y="-110">s3</name>
+			<label kind="invariant" x="170" y="-136">c&lt;=3</label>
+		</location>
+		<location id="id3" x="-178" y="59">
+			<name x="-187" y="51">s5</name>
+			<label kind="invariant" x="-188" y="76">c&lt;=9</label>
+		</location>
+		<location id="id4" x="161" y="59">
+			<name x="153" y="51">s4</name>
+			<label kind="invariant" x="151" y="76">c&lt;=7</label>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-42" y="-51">c&lt;3</label>
+			<label kind="synchronisation" x="-51" y="-34">submit?</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-178" y="-55">c==9</label>
+			<label kind="synchronisation" x="-178" y="-38">suborder!</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-34" y="42">resubmit?</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<label kind="guard" x="161" y="-55">c==3</label>
+			<label kind="synchronisation" x="161" y="-38">requery1!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="10" y="-119">query1!</label>
+			<label kind="assignment" x="10" y="-102">c:=0</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-160" y="-119">order?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

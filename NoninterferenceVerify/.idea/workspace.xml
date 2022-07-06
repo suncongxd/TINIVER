@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="NoninterferenceVerify:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d0c2bca2-8844-4357-8b54-412382851450" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/NoninterferenceVerify_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/NoninterferenceVerify.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/NoninterferenceVerifyAPI.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/NoninterferenceVerify_API.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/NoninterferenceVerify_API.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoninterferenceVerify.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NoninterferenceVerify.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoninterferenceVerify_API/dom4j-2.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoninterferenceVerify_API/freehep-graphicsbase.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoninterferenceVerify_API/model.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoninterferenceVerify_API/swixml.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoninterferenceVerify_API/uppaal.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/A Refinement Based Notion of Non-Interference for Interface Automata Compositionality, Decidability and Synthesis/SIRNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/A Refinement Based Notion of Non-Interference for Interface Automata Compositionality, Decidability and Synthesis/case1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/A Refinement Based Notion of Non-Interference for Interface Automata Compositionality, Decidability and Synthesis/case2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/Control and Synthesis of Non-Interferent Timed Systems/BSNNI_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/Control and Synthesis of Non-Interferent Timed Systems/BSNNI_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/Model Checking the Information Flow Security of Real-Time Systems/BNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/Model Checking the Information Flow Security of Real-Time Systems/BNNI_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/Non-Interference Control Synthesis for Security Timed Automata/BSNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/paper_example/Non-Interference Control Synthesis for Security Timed Automata/BSNNI_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/123.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/case1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/case2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/case3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/is-BNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/is-SIRNNI.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/is_BSNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/is_SIR-NNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/is_SIR-NNI_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/no-BNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/no-BSNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/inputModel/test_case/no_SIR-NNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/outputModel/1234.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/outputModel/test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NoninterferenceVerify/test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/ConstructRefinement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConstructRefinement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/ConstructTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConstructTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Parse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Verify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Verify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/A Refinement Based Notion of Non-Interference for Interface Automata Compositionality, Decidability and Synthesis/SIRNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/A Refinement Based Notion of Non-Interference for Interface Automata Compositionality, Decidability and Synthesis/case1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/A Refinement Based Notion of Non-Interference for Interface Automata Compositionality, Decidability and Synthesis/case2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/Control and Synthesis of Non-Interferent Timed Systems/BSNNI_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/Control and Synthesis of Non-Interferent Timed Systems/BSNNI_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/Model Checking the Information Flow Security of Real-Time Systems/BNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/Model Checking the Information Flow Security of Real-Time Systems/BNNI_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/Non-Interference Control Synthesis for Security Timed Automata/BSNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/paper_example/Non-Interference Control Synthesis for Security Timed Automata/BSNNI_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/123.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/case1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/case2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/case3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/is-BNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/is-SIRNNI.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/is_BSNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/is_SIR-NNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/is_SIR-NNI_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/no-BNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/no-BSNNI_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputModel/test_case/no_SIR-NNI_1.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BQXILVLx8NwBzF9bjUH5n6ZZgR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/suncong/TINIVER/uppaal64-4.1.26-1/lib/freehep-graphicsbase.jar",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.build"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="NoninterferenceVerify" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0c2bca2-8844-4357-8b54-412382851450" name="Changes" comment="" />
+      <created>1656839208027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656839208027</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

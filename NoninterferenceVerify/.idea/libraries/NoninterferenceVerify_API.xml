@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="NoninterferenceVerify_API">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/dom4j-2.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/freehep-graphicsbase.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/model.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/swixml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uppaal.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

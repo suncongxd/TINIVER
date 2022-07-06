@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NoninterferenceVerify:jar">
+    <output-path>$PROJECT_DIR$/..</output-path>
+    <root id="archive" name="NoninterferenceVerify.jar">
+      <element id="module-output" name="NoninterferenceVerify" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/dom4j-2.1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/freehep-graphicsbase.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/model.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/swixml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/uppaal.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/commons-cli-1.5.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

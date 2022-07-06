@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nta>
+	<declaration>clock c;
+chan h;
+		chan a,b;</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-306" y="-144">
+			<name x="-316" y="-178">s1</name>
+		</location>
+		<location id="id1" x="-161" y="-144">
+			<name x="-171" y="-178">s2</name>
+		</location>
+		<location id="id2" x="-25" y="-144">
+			<name x="-35" y="-178">s3</name>
+		</location>
+		<location id="id3" x="-348" y="17">
+			<name x="-358" y="-17">s4</name>
+		</location>
+		<location id="id4" x="-280" y="17">
+			<name x="-290" y="-17">s5</name>
+		</location>
+		<location id="id5" x="-161" y="17">
+			<name x="-171" y="-17">s6</name>
+		</location>
+		<location id="id6" x="-59" y="17">
+			<name x="-69" y="-17">s7</name>
+		</location>
+		<location id="id7" x="17" y="17">
+			<name x="7" y="-17">s8</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-327" y="-80">a?</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-293" y="-80">b?</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-161" y="-80">a?</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="0" y="-68">b?</label>
+			<nail x="-17" y="-119"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-42" y="-80">a?</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-143" y="-161">h?</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-263" y="-161">h?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>
