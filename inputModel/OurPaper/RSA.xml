@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nta>
+	<declaration>clock c;
+chan input_s_is_one;
+chan input_a_b_c_d,output_b_d,output_b2_d,output_b3_d,input_cDigits,input_ciBits,input_s_is_zero,output_t4_d,output_t4_bs_d;</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-595" y="-289">
+			<name x="-605" y="-323">s1</name>
+		</location>
+		<location id="id1" x="-433" y="-289">
+			<name x="-443" y="-323">s2</name>
+		</location>
+		<location id="id2" x="-272" y="-289">
+			<name x="-282" y="-323">s3</name>
+		</location>
+		<location id="id3" x="-110" y="-289">
+			<name x="-120" y="-323">s4</name>
+		</location>
+		<location id="id4" x="59" y="-289">
+			<name x="49" y="-323">s5</name>
+		</location>
+		<location id="id5" x="59" y="-170">
+			<name x="49" y="-204">s6</name>
+		</location>
+		<location id="id6" x="-110" y="-170">
+			<name x="-120" y="-204">s7</name>
+		</location>
+		<location id="id7" x="-272" y="-170">
+			<name x="-282" y="-204">s8</name>
+		</location>
+		<location id="id8" x="-425" y="-170">
+			<name x="-435" y="-204">s9</name>
+		</location>
+		<location id="id9" x="-425" y="-68">
+			<name x="-435" y="-102">s10</name>
+		</location>
+		<location id="id10" x="-595" y="-170">
+			<name x="-605" y="-204">s11</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-561" y="-127">output_t4_bs_d!</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-382" y="-144">c&lt;=85</label>
+			<label kind="synchronisation" x="-391" y="-136">input_s_is_one?</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-390" y="-212">c&lt;=44</label>
+			<label kind="synchronisation" x="-382" y="-195">input_s_is_zero?</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-245" y="-186">output_t4_d!</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-75" y="-182">input_ciBits?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="59" y="-246">input_cDigits?</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-93" y="-306">output_b3_d!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-254" y="-301">output_b2_d!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-415" y="-306">output_b_d!</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-577" y="-306">input_a_b_c_d?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

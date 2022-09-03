@@ -1,3 +1,4 @@
+
 import com.uppaal.model.system.symbolic.SymbolicTrace;
 import on.S;
 import org.dom4j.*;
@@ -11,6 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parse {
+    public static  ArrayList<String> first_l_refid = new ArrayList<>();
+    public static  boolean flag = true;
     /**
      * 获取当前输入模型并删除dtd声明
      * @param path
@@ -146,7 +149,7 @@ public class Parse {
         HashSet<String> save = new HashSet<>();
         HashSet<String> del = new HashSet<>();
         //HashSet<String> hasVisit = new HashSet<>();
-        queue.offer("id0");
+        queue.offer(template.element("init").attributeValue("ref"));
         while(!queue.isEmpty()){
             String temp = queue.poll();
             save.add(temp);
@@ -237,48 +240,51 @@ public class Parse {
      */
     public static Interval getInterval(String inequal){
         Interval ret = new Interval();
+        //System.out.println("21312321");
         if(inequal.contains("==")){
             ret.left = Integer.parseInt(inequal.replaceAll("[^0-9]",""));
             ret.right = ret.left;
-        }else if(inequal.length() == 4){
-            if(inequal.contains("c<=")){
-                ret.left = 0;
-                ret.right = inequal.charAt(inequal.length()-1) - 48;
-            }
-            if(inequal.contains("c>=")){
-                ret.left = inequal.charAt(inequal.length()-1) - 48;
-                ret.right = Integer.MAX_VALUE;
-            }
-            if(inequal.contains("<=c")){
-                ret.left = inequal.charAt(0) - 48;
-                ret.right = Integer.MAX_VALUE;
-            }
-            if(inequal.contains(">=c")){
-                ret.left = 0;
-                ret.right = inequal.charAt(0) - 48;
-            }
-        }else if(inequal.length() == 3){
-            if(inequal.contains("c<")){
-                ret.left = 0;
-                ret.right = inequal.charAt(inequal.length()-1) - 48;
-                ret.ropen = 1;
-            }
-            if(inequal.contains("c>")){
-                ret.left = inequal.charAt(inequal.length()-1) - 48;
-                ret.right = Integer.MAX_VALUE;
-                ret.lopen = 1;
-            }
-            if(inequal.contains("<c")){
-                ret.left = inequal.charAt(0) - 48;
-                ret.right = Integer.MAX_VALUE;
-                ret.lopen = 1;
-            }
-            if(inequal.contains(">c")){
-                ret.left = 0;
-                ret.right = inequal.charAt(0) - 48;
-                ret.ropen = 1;
-            }
         }
+        if(inequal.contains("c<=")){
+            ret.left = 0;
+            ret.right = Integer.valueOf(inequal.substring(3,inequal.length()));
+        }
+        if(inequal.contains("c>=")){
+            ret.left = Integer.valueOf(inequal.substring(3,inequal.length()));
+            ret.right = Integer.MAX_VALUE;
+        }
+        if(inequal.contains("<=c")){
+            ret.left = Integer.valueOf(inequal.substring(0,inequal.length()-3));
+            ret.right = Integer.MAX_VALUE;
+        }
+        if(inequal.contains(">=c")){
+            ret.left = 0;
+            ret.right = Integer.valueOf(inequal.substring(0,inequal.length()-3));
+        }
+        if(inequal.contains("c<") && !inequal.contains("c<=")){
+            ret.left = 0;
+            ret.right = Integer.valueOf(inequal.substring(2,inequal.length()));
+            ret.ropen = 1;
+        }
+        if(inequal.contains("c>") && !inequal.contains("c>=")){
+            ret.left = Integer.valueOf(inequal.substring(2,inequal.length()));
+
+            ret.right = Integer.MAX_VALUE;
+            ret.lopen = 1;
+        }
+        if(inequal.contains("<c") && !inequal.contains("=<c")){
+            ret.left = Integer.valueOf(inequal.substring(0,inequal.length()-2));
+            System.out.println(ret.left );
+            ret.right = Integer.MAX_VALUE;
+            ret.lopen = 1;
+        }
+        if(inequal.contains(">c") && !inequal.contains("=>c")){
+            ret.left = 0;
+            ret.right = Integer.valueOf(inequal.substring(0,inequal.length()-2));
+            System.out.println(ret.right);
+            ret.ropen = 1;
+        }
+
         return ret;
     }
 
@@ -321,43 +327,49 @@ public class Parse {
             newGuard = invariant;
         }
         if(!invariant.equals("") && !guard.equals("")){ //有不变量有guard
-            Interval interval = null;
-            if(guard.contains("&&")){ //guard为有界区间
-                Pattern patten = Pattern.compile("c<=?\\d+|c>=?\\d+|\\d+>=?c|\\d+<=?c");//编译正则表达式
-                Matcher matcher = patten.matcher(guard);// 指定要匹配的字符串
-                List<String> matchStrs = new ArrayList<>();
-                while (matcher.find()) { //此处find（）每次被调用后，会偏移到下一个匹配
-                    matchStrs.add(matcher.group());//获取当前匹配的值
-                }
-                Interval intervalGuard1 = getInterval(matchStrs.get(0));
-                Interval intervalGuard2 = getInterval(matchStrs.get(1));
-                Interval intervalInvariant = getInterval(invariant);
-                interval = mergeInterval(intervalGuard1,intervalGuard2);
-                interval = mergeInterval(intervalInvariant,interval);
 
-            }else{ //guard为无界区间
-                Interval intervalGuard = getInterval(guard);
-                Interval intervalInvariant = getInterval(invariant);
-                interval = mergeInterval(intervalInvariant,intervalGuard);
-            }
-            if(interval.right!=Integer.MAX_VALUE){
-                if(interval.ropen == 0){
-                    newGuard = "c<=" + interval.right;
-                }else{
-                    newGuard = "c<" + interval.right;
-                }
-                if(interval.lopen == 0){
-                    newGuard = interval.left + "<=c" + " && " + newGuard;
-                }else{
-                    newGuard = interval.left + "<c" + " && " + newGuard;
-                }
+            if(guard.equals(invariant)){
+                newGuard = guard;
             }else{
-                if(interval.lopen == 0){
-                    newGuard = interval.left + "<=c";
+                Interval interval = null;
+                if(guard.contains("&&")){ //guard为有界区间
+                    Pattern patten = Pattern.compile("c<=?\\d+|c>=?\\d+|\\d+>=?c|\\d+<=?c");//编译正则表达式
+                    Matcher matcher = patten.matcher(guard);// 指定要匹配的字符串
+                    List<String> matchStrs = new ArrayList<>();
+                    while (matcher.find()) { //此处find（）每次被调用后，会偏移到下一个匹配
+                        matchStrs.add(matcher.group());//获取当前匹配的值
+                    }
+                    Interval intervalGuard1 = getInterval(matchStrs.get(0));
+                    Interval intervalGuard2 = getInterval(matchStrs.get(1));
+                    Interval intervalInvariant = getInterval(invariant);
+                    interval = mergeInterval(intervalGuard1,intervalGuard2);
+                    interval = mergeInterval(intervalInvariant,interval);
+
+                }else{ //guard为无界区间
+                    Interval intervalGuard = getInterval(guard);
+                    Interval intervalInvariant = getInterval(invariant);
+                    interval = mergeInterval(intervalInvariant,intervalGuard);
+                }
+                if(interval.right!=Integer.MAX_VALUE){
+                    if(interval.ropen == 0){
+                        newGuard = "c<=" + interval.right;
+                    }else{
+                        newGuard = "c<" + interval.right;
+                    }
+                    if(interval.lopen == 0){
+                        newGuard = interval.left + "<=c" + " && " + newGuard;
+                    }else{
+                        newGuard = interval.left + "<c" + " && " + newGuard;
+                    }
                 }else{
-                    newGuard = interval.left + "<c";
+                    if(interval.lopen == 0){
+                        newGuard = interval.left + "<=c";
+                    }else{
+                        newGuard = interval.left + "<c";
+                    }
                 }
             }
+
         }
         return newGuard;
     }
@@ -884,7 +896,20 @@ public class Parse {
             l_test = traces.get(0).split(" \u2192 ")[0].split(": ")[1];
         }
         //System.out.println("xxx"+l_ref);
+//        if(flag){
+////            for(Element e : getAllLocationsInTemplate(eref)){
+////                if(e.element("name").getText().equals(l_ref)){
+////                    first_l_refid = e.attributeValue("id");
+////                }
+////            }
+//            flag = false;
+//        }
+
         ArrayList<String> nexts = getAllHighNext(highActions,eref,l_ref);
+        if(flag) {
+            first_l_refid = nexts;
+        }
+        System.out.println(nexts);
         if(nexts.isEmpty()){
             return ret;
         }
@@ -903,23 +928,35 @@ public class Parse {
         /****/format.setEncoding("utf-8");             /****/
         /****/XMLWriter writer = null;                 /****/
         /***************************************************/
-        for(int i=0;i<nexts.size();i++){ //生成xml文件
-            Document document = doc.getDocument();
-            for(Element e : document.getRootElement().elements("template")){
-                if(e.element("name").getText().equals("test")){
-                    Attribute attribute = e.element("init").attribute("ref");
-                    attribute.setValue(l_test_id);
-                }if(e.element("name").getText().equals("ref")){
-                    Attribute attribute = e.element("init").attribute("ref");
-                    attribute.setValue(nexts.get(i));
+        if(flag || !first_l_refid.equals(nexts)){
+            for(int i=0;i<nexts.size();i++){ //生成xml文件
+                System.out.println(first_l_refid);
+                System.out.println(nexts.get(i));
+                Document document = doc.getDocument();
+                for(Element e : document.getRootElement().elements("template")){
+                    if(e.element("name").getText().equals("test")){
+                        Attribute attribute = e.element("init").attribute("ref");
+                        attribute.setValue(l_test_id);
+                    }if(e.element("name").getText().equals("ref")){
+                        Attribute attribute = e.element("init").attribute("ref");
+                        attribute.setValue(nexts.get(i));
+                    }
                 }
+                FileOutputStream file =  new FileOutputStream(path.split("\\.")[0]+i+".xml");
+                writer = new XMLWriter(file, format);
+                writer.write(document);
+                ret.add(path.split("\\.")[0]+i+".xml");
             }
-            FileOutputStream file =  new FileOutputStream(path.split("\\.")[0]+i+".xml");
-            writer = new XMLWriter(file, format);
-            writer.write(document);
-            ret.add(path.split("\\.")[0]+i+".xml");
         }
-        writer.close();
+
+        flag = false;
+//        if(nexts.size()!=1 || !nexts.contains(first_l_refid)){
+//
+//        }else{
+//            return ret;
+//        }
+        if(writer!=null)
+            writer.close();
         return ret;
     }
 
@@ -942,7 +979,7 @@ public class Parse {
                 highActionsNoSuffix.add(s);
             }
         }
-        System.out.println(highActionsNoSuffix);
+        //System.out.println(highActionsNoSuffix);
         String l_ref_id = "";
         for(Element e : getAllLocationsInTemplate(eref)){
             if(e.element("name").getText().equals(l_ref)){
@@ -952,7 +989,7 @@ public class Parse {
         for(Element e : getAllTransitionInTemplate(eref)){
             for(Element e1 : e.elements("label")){
                 if(e.element("source").attributeValue("ref").equals(l_ref_id) &&
-                e1.attributeValue("kind").equals("synchronisation") &&
+                        e1.attributeValue("kind").equals("synchronisation") &&
                         !e.element("target").attributeValue("ref").equals(l_ref_id)){
                     String ss = e1.getText();
                     if(ss.contains("!")){
