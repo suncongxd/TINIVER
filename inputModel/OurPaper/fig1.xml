@@ -1,46 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <nta>
 	<declaration>clock c;
-chan h;
+chan h1,h2;
 chan a,b;</declaration>
 	<template>
 		<name x="5" y="5">Template</name>
-		<location id="id0" x="-136" y="-85">
-			<name x="-146" y="-119">s1</name>
-			<label kind="invariant" x="-146" y="-68">c&lt;=3</label>
+		<location id="id0" x="-178" y="-93">
+			<name x="-188" y="-127">s1</name>
+			<label kind="invariant" x="-188" y="-76">c&lt;=3</label>
 		</location>
-		<location id="id1" x="51" y="-85">
-			<name x="41" y="-119">s2</name>
-			<label kind="invariant" x="41" y="-68">c&lt;=3</label>
+		<location id="id1" x="-42" y="-93">
+			<name x="-52" y="-127">s2</name>
+			<label kind="invariant" x="-52" y="-76">c&lt;=3</label>
 		</location>
-		<location id="id2" x="-136" y="85">
-			<name x="41" y="-119">s3</name>
+		<location id="id2" x="85" y="-93">
+			<name x="75" y="-127">s3</name>
+			<label kind="invariant" x="75" y="-76">c&lt;=3</label>
 		</location>
-		<location id="id3" x="51" y="85">
-			<name x="41" y="-119">s4</name>
+		<location id="id3" x="-246" y="59">
+			<name x="-256" y="25">s4</name>
+		</location>
+		<location id="id4" x="-136" y="59">
+			<name x="-146" y="25">s5</name>
+		</location>
+		<location id="id5" x="-42" y="59">
+			<name x="-52" y="25">s6</name>
+		</location>
+		<location id="id6" x="51" y="59">
+			<name x="41" y="25">s7</name>
+		</location>
+		<location id="id7" x="153" y="59">
+			<name x="143" y="25">s8</name>
 		</location>
 		<init ref="id0"/>
 		<transition>
+			<source ref="id2"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="103" y="-34">b?</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="68" y="-34">a?</label>
+		</transition>
+		<transition>
 			<source ref="id0"/>
-			<target ref="id2"/>
-			<label kind="synchronisation" x="-136" y="-17">a!</label>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-157" y="-34">b?</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-228" y="-34">a?</label>
 		</transition>
 		<transition>
 			<source ref="id1"/>
-			<target ref="id3"/>
-			<label kind="synchronisation" x="51" y="-17">b!</label>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-42" y="-34">a?</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-24" y="-110">h2?</label>
 		</transition>
 		<transition>
 			<source ref="id0"/>
 			<target ref="id1"/>
-			<label kind="synchronisation" x="-118" y="-102">h!</label>
+			<label kind="guard" x="-160" y="-127">c&gt;=2</label>
+			<label kind="synchronisation" x="-160" y="-110">h1?</label>
 		</transition>
 	</template>
-	<system>// Place template instantiations here.
-Process = Template();
-// List one or more processes to be composed into a system.
-system Process;
-    </system>
+	<system>system Template;</system>
 	<queries>
 		<query>
 			<formula></formula>
